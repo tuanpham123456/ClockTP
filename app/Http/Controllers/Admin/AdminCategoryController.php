@@ -48,7 +48,7 @@ class AdminCategoryController extends AdminController
         $category   =   Category::find($id);
         if ($category) $category->delete();
 
-        return redirect()->back();
+        return \redirect()->back();
     }
 
     public function active($id){

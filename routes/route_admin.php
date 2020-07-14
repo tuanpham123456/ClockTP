@@ -25,5 +25,23 @@
             Route::get('hot{id}','AdminCategoryController@hot')->name('admin.category.hot');
 
 
-    });
+            });
+        Route::group(['prefix' => 'keyword'],function(){
+            Route::get('','AdminKeywordController@index')->name('admin.keyword.index');
+            // thêm form
+            Route::get('create','AdminKeywordController@create')->name('admin.keyword.create');
+            // sử lý thêm mới
+            Route::post('create','AdminKeywordController@store');
+
+            // update
+            Route::get('update{id}','AdminKeywordController@edit')->name('admin.keyword.update');
+            Route::post('update{id}','AdminKeywordController@update');
+
+            Route::get('hot{id}','AdminKeywordController@hot')->name('admin.keyword.hot');
+
+            // xóa danh mục
+            Route::get('delete{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
+
+
+             });
 });

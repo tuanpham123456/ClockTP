@@ -311,6 +311,10 @@
                         <li class="active"><a href="{{ route('admin.category.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Category</span></a>
                         </li>
                     </ul>
+                    <ul class="menu-content">
+                        <li class="active"><a href="{{ route('admin.keyword.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Keyword</span></a>
+                        </li>
+                    </ul>
                 </li>
                 <li class=" navigation-header"><span>Apps</span>
                 </li>
