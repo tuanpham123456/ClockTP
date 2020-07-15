@@ -42,6 +42,24 @@
             // xóa danh mục
             Route::get('delete{id}','AdminKeywordController@delete')->name('admin.keyword.delete');
 
-
              });
+
+             Route::group(['prefix' => 'product'],function(){
+                Route::get('','AdminProductController@index')->name('admin.product.index');
+                // thêm form
+                Route::get('create','AdminProductController@create')->name('admin.product.create');
+                // sử lý thêm mới
+                Route::post('create','AdminProductController@store');
+
+                // update
+                Route::get('update{id}','AdminProductController@edit')->name('admin.product.update');
+                Route::post('update{id}','AdminProductController@update');
+
+                Route::get('hot{id}','AdminProductController@hot')->name('admin.product.hot');
+                Route::get('active{id}','AdminProductController@active')->name('admin.product.active');
+
+                // xóa danh mục
+                Route::get('delete{id}','AdminProductController@delete')->name('admin.product.delete');
+
+                 });
 });

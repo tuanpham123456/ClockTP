@@ -37,12 +37,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Keyword</h2>
+                        <h2 class="content-header-title float-left mb-0">Products View</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.keyword.index') }}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.product.index') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{ route('admin.keyword.index') }}">Keyword List</a>
+                                <li class="breadcrumb-item"><a href="#">Product List</a>
                                 </li>
                                 <li class="breadcrumb-item active">Thumb View
                                 </li>
@@ -80,7 +80,7 @@
                 </div>
                 <button class="btn btn-outline-primary" tabindex="0" aria-controls="DataTables_Table_0">
                     <span><i class="feather icon-plus">
-                        </i><a href="{{ route('admin.keyword.create') }}">Add New</a></span>
+                        </i><a href="{{ route('admin.product.create') }}">Add New</a></span>
                 </button>
 
                 <!-- dataTable starts -->
@@ -89,48 +89,65 @@
                         <thead>
                             <tr>
                                 <th style="width: 10px">#</th>
+                                <th>Image</th>
                                 <th>NAME</th>
-                                <th>DESCRIPTION</th>
                                 <th>HOT</th>
-                                <th>TIME</th>
+                                <th>STATUS</th>
+                                <th>Time</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                         <tbody>
-                            @if( $keywords)
-                            @foreach ($keywords as $keyword )
+                        <tbody>
+                            @if( $products)
+                            @foreach ($products as $product )
 
 
                             <tr>
-                                <td>{{ $keyword->id }}</td>
-                                <td class="product-name">{{ $keyword->k_name }}</td>
-                                <td class="product-name">{{ $keyword->k_description }}</td>
-
-
+                                <td>{{ $product->id }}</td>
+                                <td class="product-img"><img src="{{ asset('admin/app-assets/images/elements/apple-watch.png') }}" alt="Img placeholder">
+                                </td>
+                                <td class="product-name">{{ $product->pro_name }}</td>
 
                                 <td>
-                                    @if ($keyword->k_hot == 1 )
+                                    @if ($product->pro_active == 1 )
                                     <div class="chip chip-warning">
                                         <div class="chip-body">
-                                            <div class="chip-text"><a style="color: antiquewhite" href="{{ route('admin.keyword.hot',$keyword->id) }}">Hot</a></div>
+                                            <div class="chip-text"><a style="color: antiquewhite" href="{{ route('admin.product.active',$product->id) }}">Hide</a></div>
                                         </div>
                                     </div>
                                     @else
                                     <div class="chip chip-warning">
                                         <div class="chip-body">
-                                            <div class="chip-text"><a style="color: antiquewhite" href="{{ route('admin.keyword.hot',$keyword->id) }}">No</a></div>
+                                            <div class="chip-text"><a style="color: antiquewhite" href={{  route('admin.product.active',$product->id) }} }} >Show</a></div>
+                                        </div>
+                                    </div>
+
+                                    @endif
+
+                                </td>
+                                <td>
+                                    @if ($product->pro_hot == 1 )
+                                    <div class="chip chip-warning">
+                                        <div class="chip-body">
+                                            <div class="chip-text"><a style="color: antiquewhite" href="{{ route('admin.product.hot',$product->id) }}">Hot</a></div>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <div class="chip chip-warning">
+                                        <div class="chip-body">
+                                            <div class="chip-text"><a style="color: antiquewhite" href="{{ route('admin.product.hot',$product->id) }}">No</a></div>
                                         </div>
                                     </div>
 
                                     @endif
                                 </td>
-                                <td>{{ $keyword->created_at }}</td>
+                                <td>{{ $product->created_at }}</td>
                                 <td class="product-action">
-                                    <a href="{{ route('admin.keyword.update',$keyword->id) }}">
-                                        <span class="action-edit"><i class="feather icon-edit">Edit</i></span>
+                                    <a href="{{ route('admin.product.update',$product->id) }}">
+                                        <span class="action-edit"><i class="feather icon-edit"> Edit</i></span>
                                     </a>
-                                    <a href="{{ route('admin.keyword.delete',$keyword->id) }}">
-                                        <span class="action-delete"><i class="feather icon-trash">Delete</i></span>
+                                    <a href="{{ route('admin.product.delete',$product->id) }}">
+                                        <span class="action-delete"><i class="feather icon-trash"> Delete</i></span>
                                     </a>
 
                                 </td>
@@ -143,7 +160,7 @@
                 <!-- dataTable ends -->
 
 
-                {{-- <div>{!! $categories->links() !!}</div> --}}
+                <div>{!! $products->links() !!}</div>
 
             </section>
             <!-- Data list view end -->

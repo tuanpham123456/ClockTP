@@ -31,14 +31,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Input</h2>
+                        <h2 class="content-header-title float-left mb-0">Create Keyword</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Form Elements</a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.keyword.index') }}">Keyword List</a>
                                 </li>
-                                <li class="breadcrumb-item active">Input
+                                <li class="breadcrumb-item active">Create
                                 </li>
                             </ol>
                         </div>
@@ -62,15 +62,15 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Basic Inputs</h4>
+                                    <h4 class="card-title">Keywords Inputs</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-xl-12 col-md-12 col-12 mb-1">
                                                 <fieldset class="form-group" ></fieldset>
-                                                    <label>Input Name<span class="text-danger"> *</span></label>
-                                                    <input type="text" name="k_name" class="form-control" id="" placeholder="Enter email" >
+                                                    <label>Input Name Keywords<span class="text-danger"> *</span></label>
+                                                    <input type="text" name="k_name" class="form-control" id="" placeholder="Enter keyword" >
                                                     @if ($errors->first('k_name'))
                                                         <span class="text-danger">{{ $errors->first('k_name') }}</span>
                                                     @endif
@@ -78,7 +78,8 @@
                                             </div>
                                             <div class="col-xl-12 col-md-12 col-12 mb-1">
                                                 <fieldset class="form-group">
-                                                    <textarea class="form-control" id="basicTextarea" name="k_description" rows="3" placeholder="Textarea"></textarea>
+                                                    <label>Input Name Description<span class="text-danger"> *</span></label>
+                                                    <textarea class="form-control" id="basicTextarea" name="k_description" rows="3" placeholder="Description ...."></textarea>
                                                 </fieldset>
                                                 @if ($errors->first('k_description'))
                                                         <span class="text-danger">{{ $errors->first('k_description') }}</span>

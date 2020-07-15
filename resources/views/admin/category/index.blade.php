@@ -37,12 +37,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-left mb-0">Thumb View</h2>
+                        <h2 class="content-header-title float-left mb-0">Category</h2>
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Data List</a>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Category List</a>
                                 </li>
                                 <li class="breadcrumb-item active">Thumb View
                                 </li>
@@ -144,10 +144,10 @@
                                 <td>{{ $category->created_at }}</td>
                                 <td class="product-action">
                                     <a href="{{ route('admin.category.update',$category->id) }}">
-                                        <span class="action-edit"><i class="feather icon-edit">Edit</i></span>
+                                        <span class="action-edit"><i class="feather icon-edit"> Edit</i></span>
                                     </a>
                                     <a href="{{ route('admin.category.delete',$category->id) }}">
-                                        <span class="action-delete"><i class="feather icon-trash">Delete</i></span>
+                                        <span class="action-delete"><i class="feather icon-trash"> Delete</i></span>
                                     </a>
 
                                 </td>
