@@ -372,20 +372,30 @@
          <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                <li class=" nav-item">
-                  <a href="index.html"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
+                  <a href="index.html"><i class="feather icon-gift"></i><span class="menu-title" data-i18n="Dashboard">Category</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
                   <ul class="menu-content">
                      <li class="active"><a href="{{ route('admin.category.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Category</span></a>
                      </li>
                   </ul>
-                  <ul class="menu-content">
-                     <li class="active"><a href="{{ route('admin.keyword.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Keyword</span></a>
-                     </li>
-                  </ul>
-                  <ul class="menu-content">
-                     <li class="active"><a href="{{ route('admin.product.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Product</span></a>
-                     </li>
-                  </ul>
                </li>
+               <li class=" nav-item">
+                <a href="index.html"><i class="feather icon-key"></i><span class="menu-title" data-i18n="Dashboard">Keyword</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
+
+                <ul class="menu-content">
+                   <li class="active"><a href="{{ route('admin.keyword.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Keyword</span></a>
+                   </li>
+                </ul>
+
+                </li>
+                <li class=" nav-item">
+                    <a href="index.html"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Product</span><span class="badge badge badge-warning badge-pill float-right mr-2">2</span></a>
+
+                    <ul class="menu-content">
+                       <li class="active"><a href="{{ route('admin.product.index') }}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Analytics">Product</span></a>
+                       </li>
+                    </ul>
+                 </li>
+
                <li class=" navigation-header"><span>Apps</span>
                </li>
                <li class=" nav-item"><a href="app-email.html"><i class="feather icon-mail"></i><span class="menu-title" data-i18n="Email">Email</span></a>

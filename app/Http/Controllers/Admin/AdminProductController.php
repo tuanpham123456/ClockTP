@@ -28,12 +28,18 @@ class AdminProductController extends AdminController
     }
     public function store(AdminRequestProduct $request)
     {
-        $data = $request->except('_token');
+        $data = $request->except('_token','pro_avatar');
         $data['pro_slug']     = Str::slug($request->pro_name);
         $data['created_at']   = Carbon::now();
 
+        if ($request->pro_avatar) {
+            $image = upload_image('pro_avatar');
+            if ($image['code'] == 1)
+                $data['pro_avatar'] = $image['name'];
+        }
 
         $id = Product::insertGetId($data);
+
         return redirect()->back();
     }
 
@@ -50,12 +56,18 @@ class AdminProductController extends AdminController
 
     public function update(AdminRequestProduct $request, $id)
     {
-        $product        =   Product::find($id);
-        $data           =   $request->except('_token');
-        $data['pro_slug']       =   Str::slug($request->pro_name);
-        $data['updated_at']     =   Carbon::now();
-        $product->update($data);
+        $product           = Product::find($id);
+        $data               = $request->except('_token','pro_avatar');
+        $data['pro_slug']     = Str::slug($request->pro_name);
+        $data['updated_at'] = Carbon::now();
 
+        if ($request->pro_avatar) {
+            $image = upload_image('pro_avatar');
+            if ($image['code'] == 1)
+                $data['pro_avatar'] = $image['name'];
+        }
+
+        $product->update($data);
         return redirect()->back();
     }
     public function delete($id)
